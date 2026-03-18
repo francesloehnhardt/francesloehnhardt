@@ -1,12 +1,12 @@
 
 // Parallax Hero
-/*
+
 window.addEventListener('scroll', function(){
   const scrolled = window.pageYOffset;
   const heroImg = document.querySelector('.hero-parallax img');
   heroImg.style.transform = `translateY(${scrolled * 0.3}px)`;
 });
-*/
+
 
 // Scrollytelling Portfolio Image Swap
 const projects = document.querySelectorAll(".project");
