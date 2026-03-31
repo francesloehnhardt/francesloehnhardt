@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Journalistisches Portfolio</title>
+<style>
+/* ========== GLOBAL ========== */
+* { box-sizing: border-box; margin:0; padding:0; }
+body {
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial;
+  color:#111;
+  line-height:1.6;
+  scroll-snap-type:y mandatory;
+  overflow-y:scroll;
+}
+section { height:100vh; padding:80px 8vw; display:grid; align-items:center; scroll-snap-align:start; }
+
+/* ========== HERO ========== */
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(220px,320px) 1fr;
+  gap: 60px;
+  align-items: center;
+  overflow: hidden;
+  scroll-snap-align: start;
+  background: #000;
+  color:white;
+}
+.hero-parallax {
+  position: relative; height:100%; overflow:hidden;
+}
+.hero-parallax img {
+  width:100%; height:110%; object-fit:cover; border-radius:12px;
+  transform: translateY(0);
+  transition: transform 0.2s ease-out;
+}
+.hero-text { max-width:600px; z-index:2; }
+.hero-text h1 {
+  font-size:clamp(36px,6vw,64px);
+  line-height:1.1;
+  margin-bottom:20px;
+  font-weight:800;
+}
+.hero-text p { font-size:clamp(18px,2vw,22px); line-height:1.5; color:#f5f5f5; }
+
+/* ========== VIDEO ========== */
+.video {
+  background:#f4f4f4;
+  grid-template-rows:auto auto;
+  justify-items:center;
+  text-align:center;
+}
+.video video { width:80%; max-width:900px; margin-top:30px; border-radius:10px; }
+
+/* ========== ABOUT ========== */
+.about { grid-template-columns:1fr 1fr; gap:80px; }
+.timeline { border-left:3px solid #ddd; padding-left:25px; }
+.entry { margin-bottom:30px; }
+
+/* ========== SKILLS ========== */
+.skills {
+  background:#fafafa;
+  grid-template-rows:auto 1fr;
+}
+.skill-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:25px; margin-top:40px; }
+.skill-box { background:white; padding:25px; border-radius:12px; box-shadow:0 10px 20px rgba(0,0,0,0.05); }
+
+/* ========== PORTFOLIO SCROLLTELLING ========== */
+.portfolio {
+  background:#111;
+  color:white;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:start;
+}
+.sticky { position:sticky; top:120px; }
+.project-image { width:100%; border-radius:12px; }
+.project { margin-bottom:120px; max-width:500px; }
+audio { margin-top:15px; width:100%; }
+
+/* ========== FOOTER ========== */
+footer {
+  height:100vh;
+  background:#000;
+  color:white;
+  display:grid;
+  place-items:center;
+  scroll-snap-align:start;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width:900px){
+  section{height:auto; grid-template-columns:1fr; padding:60px 8vw;}
+  .hero{grid-template-columns:1fr 1fr; gap:40px;}
+  .hero-parallax img{height:auto;}
+  .hero-text{max-width:500px;}
+  .about{grid-template-columns:1fr;}
+  .portfolio{grid-template-columns:1fr;}
+  .sticky{position:relative; top:0; margin-bottom:40px;}
+}
+@media (max-width:650px){
+  .hero{grid-template-columns:1fr; text-align:center; justify-items:center;}
+  .hero img{max-width:200px;}
+  .hero-text{max-width:500px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="hero-parallax">
+    <img src="images/bewerbungsfoto.jpg" alt="Bewerbungsfoto Max Mustermann">
+  </div>
+  <div class="hero-text">
+    <h1>Max Mustermann</h1>
+    <p>Ich erzähle journalistische Geschichten in Audio, Text und digitalen Formaten. Mein Schwerpunkt liegt auf Podcastproduktion, Recherche und multimedialem Storytelling.</p>
+  </div>
+</section>
+
+<!-- ========== VIDEO ========== -->
+<section class="video">
+  <h2>Persönliche Vorstellung</h2>
+  <video controls>
+    <source src="video/bewerbung.mp4" type="video/mp4">
+  </video>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section class="about">
+  <div>
+    <h2>Über mich</h2>
+    <p>Journalismus bedeutet für mich, komplexe Themen verständlich zu erzählen und Menschen eine Stimme zu geben. Besonders interessieren mich lokale Geschichten und gesellschaftliche Entwicklungen.</p>
+  </div>
+  <div class="timeline">
+    <div class="entry">
+      <h3>2023 – heute</h3>
+      <p>Freier Journalist – Podcasts und Reportagen</p>
+    </div>
+    <div class="entry">
+      <h3>2021 – 2023</h3>
+      <p>Studium Medienjournalismus</p>
+    </div>
+    <div class="entry">
+      <h3>2019 – 2021</h3>
+      <p>Praktikum Redaktion</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SKILLS ========== -->
+<section class="skills">
+  <h2>Kompetenzen</h2>
+  <div class="skill-grid">
+    <div class="skill-box">Podcastproduktion</div>
+    <div class="skill-box">Audio Editing</div>
+    <div class="skill-box">Interviewführung</div>
+    <div class="skill-box">Recherche</div>
+    <div class="skill-box">Multimedia Storytelling</div>
+    <div class="skill-box">Social Media Journalismus</div>
+  </div>
+</section>
+
+<!-- ========== PORTFOLIO ========== -->
+<section class="portfolio">
+  <div class="sticky">
+    <img id="projectImage" class="project-image" src="images/podcast.jpg">
+  </div>
+  <div>
+    <div class="project" data-image="images/podcast.jpg">
+      <h3>Podcast: Stimmen der Stadt</h3>
+      <p>Recherche, Interviewführung, Aufnahme und Schnitt.</p>
+      <audio controls><source src="audio/podcast.mp3"></audio>
+    </div>
+    <div class="project" data-image="images/reportage.jpg">
+      <h3>Multimedia-Reportage</h3>
+      <p>Digitale Reportage mit Text, Fotografie und visuellen Elementen.</p>
+    </div>
+    <div class="project" data-image="images/social.jpg">
+      <h3>Social-Media-Newsformat</h3>
+      <p>Kurze journalistische Storyformate für soziale Netzwerke.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div>
+    <h2>Vielen Dank für Ihre Zeit.</h2>
+    <p>Kontakt: max.mustermann@email.de</p>
+  </div>
+</footer>
+
+<!-- ========== SCRIPT ========== -->
+<script>
+// Parallax Hero
+window.addEventListener('scroll', function(){
+  const scrolled = window.pageYOffset;
+  const heroImg = document.querySelector('.hero-parallax img');
+  heroImg.style.transform = `translateY(${scrolled * 0.3}px)`;
+});
+
+// Scrollytelling Portfolio Image Swap
+const projects = document.querySelectorAll(".project");
+const image = document.getElementById("projectImage");
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      image.src = entry.target.dataset.image;
+    }
+  });
+},{threshold:0.6});
+projects.forEach(p => observer.observe(p));
+</script>
+
+</body>
+</html>
